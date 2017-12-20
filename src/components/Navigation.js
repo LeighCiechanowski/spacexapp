@@ -30,23 +30,29 @@ export default class Navigation extends React.Component {
     return (
       <div>
         <Navbar color="faded" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <NavbarBrand href="/">SpaceX</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="#">Upcoming Launches</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
+                <NavLink href="#">Past Launches</NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
+              <NavItem>
+                <NavLink href="#">Launche Sites</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#">Rockets</NavLink>
+              </NavItem>
+              {/* <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Options
+                  Launches
                 </DropdownToggle>
                 <DropdownMenu >
                   <DropdownItem>
-                    Option 1
+                  <NavLink href="#">Upcoming Launches</NavLink>
                   </DropdownItem>
                   <DropdownItem>
                     Option 2
@@ -56,7 +62,7 @@ export default class Navigation extends React.Component {
                     Reset
                   </DropdownItem>
                 </DropdownMenu>
-              </UncontrolledDropdown>
+              </UncontrolledDropdown> */}
             </Nav>
           </Collapse>
         </Navbar>
