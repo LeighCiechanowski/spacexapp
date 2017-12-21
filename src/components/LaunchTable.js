@@ -2,7 +2,13 @@ import React from 'react';
 import { Table } from 'reactstrap';
 
 export default class LaunchTable extends React.Component {
+  componentWillMount() {
+    this.props.loadLaunches();
+  }
   render() {
+    if (this.props.itemsHasErrored) {
+      return <p>Sorry! There was an error loading the items</p>;
+    }
     return (
       <Table hover>
         <thead>
@@ -14,24 +20,17 @@ export default class LaunchTable extends React.Component {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>12/01/2018</td>
-            <td>Falcon 9</td>
-            <td>Kenedy</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>17/06/2018</td>
-            <td>Falcon 9</td>
-            <td>SpaceX</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>02/08/2018</td>
-            <td>Falcon Heavy</td>
-            <td>Space Road</td>
-          </tr>
+            { 
+              this.props.launches.map ( 
+              launch => (
+              <tr>
+                <th scope="row">{ launch.flight_number }</th>
+                <td>{ launch.launch_date_utc }</td>
+                <td>{ launch.rocket.rocket_name }</td>
+                <td>{ launch.launch_site.site_name_long }</td>
+              </tr>)
+              )
+            }
         </tbody>
       </Table>
     );
