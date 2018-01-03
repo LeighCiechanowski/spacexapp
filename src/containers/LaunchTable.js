@@ -1,35 +1,19 @@
 import { connect } from 'react-redux'
 import LaunchTable from '../components/LaunchTable'
-import { loadLaunches } from '../actions/index'
+import { getLaunches } from '../actions/pastLaunches'
+import { loadavg } from 'os';
 
 const mapStateToProps = state => {
-  console.log('-----------------');
-  console.log(state.items);
     return {
-       launches: state.items,
-       itemsHasErrored: state.itemsHasErrored
-       //[
-        // {
-        //   FlightNumber: "54",
-        //   Date: "3/01/2018",
-        //   Rocket: "Falcon Heavy",
-        //   LaunchPad: "Cape"
-      
-        // },
-        // {
-        //   FlightNumber: "55",
-        //   Date: "12/02/2018",
-        //   Rocket: "Falcon",
-        //   LaunchPad: "Space City"
-        // }
-    //   ]//getVisibleTodos(state.todos, state.visibilityFilter)
+       launches: state.launches,
+       launchesHasErrored: state.launchesHasErrored
     }
   }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    loadLaunches: () => {
-      dispatch(loadLaunches())
+    getLaunches: () => {
+      dispatch(getLaunches())
     }
   }
 }

@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import reducer from './reducers/SpaceXReducers'
 import './index.css';
 import App from './App';
+import Root from './components/Root'
 import registerServiceWorker from './registerServiceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -16,8 +17,6 @@ let store = createStore(
   );
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>, 
+    <Root store={store} />,
     document.getElementById('root'));
 registerServiceWorker();

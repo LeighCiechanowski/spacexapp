@@ -2,12 +2,12 @@ import React from 'react';
 import { Table, Alert, Fade } from 'reactstrap';
 import Navigation from '../components/Navigation';
 
-export default class LaunchTable extends React.Component {
+export default class LatestLaunchTable extends React.Component {
   componentWillMount() {
-    this.props.getLaunches();
+    this.props.getLatestLaunches();
   }
   renderTable() {
-    if (this.props.launchesHasErrored) {
+    if (this.props.latestLaunchesHasErrored) {
       return <Alert color="danger">Sorry! There was an error loading the items</Alert>;
     }
     else {
@@ -24,7 +24,7 @@ export default class LaunchTable extends React.Component {
             </thead>
             <tbody>
                 { 
-                  this.props.launches.map ( 
+                  this.props.latestLaunches.map ( 
                   launch => (
                   <tr>
                     <th scope="row">{ launch.flight_number }</th>
