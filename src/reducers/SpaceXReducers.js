@@ -75,6 +75,31 @@ export const latestLaunchesHasErrored = (state = false, action) => {
     }
   }
 
+  export const rocketHasErrored = (state = false, action) => {
+    switch (action.type) {
+        case 'ROCKET_HAS_ERRORED':
+            return action.hasErrored;
+        default:
+            return state;
+    }
+  }
+  export const rocketIsLoading = (state = false, action) => {
+    switch (action.type) {
+        case 'ROCKET_IS_LOADING':
+            return action.isLoading;
+        default:
+            return state;
+    }
+  }
+  export const rocket = (state = [], action) => {
+    switch (action.type) {
+        case 'ROCKET_FETCH_DATA_SUCCESS':
+            return action.rocket;
+        default:
+            return state;
+    }
+  }
+
 const reducer = combineReducers({
     launchesHasErrored,
     launchesIsLoading,
@@ -84,7 +109,10 @@ const reducer = combineReducers({
     latestLaunches,
     rocketsHasErrored,
     rocketsIsLoading,
-    rockets
+    rockets,
+    rocketHasErrored,
+    rocketIsLoading,
+    rocket
   })
   
   export default reducer

@@ -7,6 +7,7 @@ import RocketTableContainer from '../containers/RocketTable'
 import LaunchTableContainer from '../containers/LaunchTable'
 import LatestLaunchTableContainer from '../containers/LatestLaunchTable'
 import LaunchContainer from '../containers/Launch'
+import RocketDisplayContainer from '../containers/RocketDisplay'
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -14,9 +15,10 @@ const Root = ({ store }) => (
         <div>
         <Route exact path="/" component={App} />
         <Route exact path="/launches" component={LaunchTableContainer} />
-        <Route exact path="/launches/latest" component={LatestLaunchTableContainer} />
+        <Route exact path="/latest-launches" component={LatestLaunchTableContainer} />
         <Route excat path="/launches/:id" component={LaunchContainer} /> 
         <Route exact path="/rockets" component={RocketTableContainer} /> 
+        <Route exact path="/rockets/:id" component={RocketDisplayContainer} /> 
         </div>
     </Router>
   </Provider>

@@ -35,13 +35,10 @@ export default class Navigation extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/launches/latest">Upcoming Launches</NavLink>
+                <NavLink href="/latest-launches">Upcoming Launches</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/launches">Past Launches</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/sites">Launche Sites</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/rockets">Rockets</NavLink>
