@@ -3,16 +3,24 @@ import { Table, Alert, Fade } from 'reactstrap';
 import Navigation from '../components/Navigation';
 
 export default class LaunchTable extends React.Component {
-  componentWillMount() {
+  constructor(props) {
+    super(props);
     this.props.getLaunches();
+  }
+  componentWillMount() {
+    
+  }
+  handleKeyUp = (event) => {
+    this.props.filterLaunches(this.props.launches, event.target.value);
   }
   renderTable() {
     if (this.props.launchesHasErrored) {
       return <Alert color="danger">Sorry! There was an error loading the items</Alert>;
     }
-    else {
+    else {   
       return (
         <div>
+          <input type="text" id="one" onChange={this.handleKeyUp} />
           <Table hover>
             <thead>
               <tr>
@@ -24,7 +32,7 @@ export default class LaunchTable extends React.Component {
             </thead>
             <tbody>
                 { 
-                  this.props.launches.map ( 
+                  this.props.filteredLaunches.map ( 
                   launch => (
                   <tr>
                     <th scope="row">{ launch.flight_number }</th>
@@ -38,6 +46,7 @@ export default class LaunchTable extends React.Component {
           </Table>
         </div>
       )
+      
     }
   }
   render() {

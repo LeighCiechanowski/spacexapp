@@ -24,6 +24,14 @@ export const launches = (state = [], action) => {
           return state;
   }
 }
+// export const filteredLaunchesSuccess = (state = [], action) => {
+//     switch (action.type) {
+//         case 'LAUNCHES_FETCH_DATA_SUCCESS':
+//             return action.launches;
+//         default:
+//             return state;
+//     }
+//   }
 
 export const latestLaunchesHasErrored = (state = false, action) => {
     switch (action.type) {
@@ -100,6 +108,17 @@ export const latestLaunchesHasErrored = (state = false, action) => {
     }
   }
 
+  export const filteredLaunches = (state = [], action) => {
+    switch (action.type) {
+        case 'FILTERED_LAUNCHES_SUCCESS':
+            return action.filteredLaunches;
+        case 'LAUNCHES_FETCH_DATA_SUCCESS':
+            return action.launches;
+        default:
+            return state;
+    }
+  }
+
 const reducer = combineReducers({
     launchesHasErrored,
     launchesIsLoading,
@@ -112,7 +131,8 @@ const reducer = combineReducers({
     rockets,
     rocketHasErrored,
     rocketIsLoading,
-    rocket
+    rocket,
+    filteredLaunches
   })
   
   export default reducer

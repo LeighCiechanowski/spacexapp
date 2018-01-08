@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
 import LaunchTable from '../components/LaunchTable'
-import { getLaunches } from '../actions/pastLaunches'
+import { getLaunches, filterLaunches } from '../actions/pastLaunches'
 import { loadavg } from 'os';
 
 const mapStateToProps = state => {
     return {
        launches: state.launches,
+       filteredLaunches: state.filteredLaunches,
        launchesHasErrored: state.launchesHasErrored
     }
   }
@@ -14,6 +15,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     getLaunches: () => {
       dispatch(getLaunches())
+    },
+    filterLaunches: (launches, filter) => {
+      dispatch(filterLaunches(launches, filter))
     }
   }
 }
