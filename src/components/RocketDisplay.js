@@ -12,7 +12,6 @@ export default class RocketDisplay extends React.Component {
     }
     return (
         <div>
-        <Navigation />
         <div>{ this.props.rocket.name }</div>
         <div>{ this.props.rocket.stages }</div>
         <div>{ this.props.rocket.name }</div>

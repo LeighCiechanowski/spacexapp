@@ -7,7 +7,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navigation />
         <Fade in={true}>
           <Jumbotron>
             <h1 className="display-3">Hello World</h1>

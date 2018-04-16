@@ -13,7 +13,10 @@ export function getLaunches() {
             .then((launches) => {
                 dispatch(launchesFetchDataSuccess(launches));
             })
-            .catch(() => dispatch(launchesHasErrored(true)));
+            .catch(() => {
+                dispatch(launchesIsLoading(false));
+                dispatch(launchesHasErrored(true));
+            });
     };
   }
 

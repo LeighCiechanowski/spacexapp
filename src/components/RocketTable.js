@@ -12,7 +12,6 @@ export default class RocketTable extends React.Component {
     }
     return (
         <div>
-        <Navigation />
             <Table hover>
                 <thead>
                 <tr>

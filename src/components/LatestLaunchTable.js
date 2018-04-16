@@ -43,7 +43,6 @@ export default class LatestLaunchTable extends React.Component {
   render() {
     return(
       <div>
-        <Navigation />
         <Fade in={true}>
           { this.renderTable() }
         </Fade>

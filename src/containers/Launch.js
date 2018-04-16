@@ -1,21 +1,21 @@
 import { connect } from 'react-redux'
 import Launch from '../components/Launch'
-import { getLaunches } from '../actions/pastLaunches'
+import { getLaunch } from '../actions/pastLaunch'
 import { loadavg } from 'os';
 
 const mapStateToProps = state => {
     return {
-       launches: state.items,
-       itemsHasErrored: state.itemsHasErrored
+       launch: state.launch,
+       launchHasErrored: state.launchHasErrored,
+      //  wtf: state.launch.links.mission_patch 
     }
   }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    getLaunches: () => {
-      dispatch(getLaunches('https://api.spacexdata.com/v2/launches?flight_number=' + ownProps.match.params.id))
-    },
-    hmm: ownProps.match.params.id
+    getLaunch: () => {
+      dispatch(getLaunch(ownProps.match.params.id))
+    }
   }
 }
 
